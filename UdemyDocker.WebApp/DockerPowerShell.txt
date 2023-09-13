@@ -19,12 +19,10 @@ docker rmi image-id/name --force
 docker run -d -p 5001:4500 --name mycon2 --volume images:/app/wwwroot/images f3b
  -----------------------------------------
  -----------------------------------------
-
 docker start 269/docker stop 269
 docker attach 269 projeyi çalıştırır çıkmak için ctrl+c yaparsak çıkıyor
  -----------------------------------------
  -----------------------------------------
-
 -Run  //hem bir container oluşturuyor hem de ayağa kaldırıyor!!
 docker run --name udemyconsole_container2 8ac(ımageId)
  --rm parametresi : Container ı ne zaman durdurursanız aynı anda silinme işlemi gerçekleşir.
@@ -59,6 +57,11 @@ docker tag busybox umutsahinkaya/udemyrepository:v2
 docker volume create [images]
 docker run -d -p 5001:4500 --name mycon2 --volume images:/app/wwwroot/images f3b
 docker volume rm images  
+----------------------------------------------------------------------------------
+----------------------------------------------------------------------------------ENVIRONMENT
+docker run -p 5000:4500 --env ASPNETCORE_ENVIRONMENT=DEVELOPMENT --name mycon c12
+----------------------------------------------------------------------------------
+Eğer <none> adında image lara sahipsen silmek gerekiyormuş. bunun içinde yazman gereken powershell cümlesi
 
-
-
+docker rmi $(docker images -f "dangling=true" -q)
+----------------------------------------------------------------------------------
