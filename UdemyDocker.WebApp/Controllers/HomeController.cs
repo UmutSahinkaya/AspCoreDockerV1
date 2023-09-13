@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.FileProviders;
 using Microsoft.Extensions.Logging;
 using System;
@@ -16,10 +17,12 @@ namespace UdemyDocker.WebApp.Controllers
     {
         private readonly ILogger<HomeController> _logger;
         private readonly IFileProvider _fileProvider;
-        public HomeController(ILogger<HomeController> logger, IFileProvider fileProvider)
+        private readonly IConfiguration _configuration;
+        public HomeController(ILogger<HomeController> logger, IFileProvider fileProvider, IConfiguration configuration)
         {
             _logger = logger;
             _fileProvider = fileProvider;
+            _configuration = configuration;
         }
         public IActionResult ImageShow()
         {
@@ -57,6 +60,7 @@ namespace UdemyDocker.WebApp.Controllers
         #region Index,Privacy,Error
         public IActionResult Index()
         {
+            ViewBag.MySqlCon = _configuration["MySqlCon"];
             return View();
         }
 
