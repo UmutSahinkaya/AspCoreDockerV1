@@ -1,0 +1,62 @@
+﻿FROM mcr.microsoft.com/dotnet/core/runtime:3.1
+WORKDIR /app
+COPY bin/Release/netcoreapp3.1/publish /app/
+ENTRYPOINT ["dotnet","UdemyConsoleDocker.dll"]
+
+///////////-////////////-////////////-///////////-////////////-////////
+docker build  -t udemyconsoleapp . image oluştur
+docker images
+docker create --name udemyconsole_container udemyconsoleapp
+docker ps -a // mevcut containerları görebilirim
+docker start udemyconsole_container
+docker stop udemyconsole_container
+docker run --name udemyconsole_container2 8ac(ımageId)
+docker run -p 5000:80 udemyaspcoremvc:v1
+docker run -d --name mycontainer -p 5002:80 udemyaspcoremvc:v1
+docker run --rm --name myapp
+docker build -t udemy_console_app:v1 . 
+docker rmi image-id/name --force
+ -----------------------------------------
+ -----------------------------------------
+
+docker start 269/docker stop 269
+docker attach 269 projeyi çalıştırır çıkmak için ctrl+c yaparsak çıkıyor
+ -----------------------------------------
+ -----------------------------------------
+
+-Run  //hem bir container oluşturuyor hem de ayağa kaldırıyor!!
+docker run --name udemyconsole_container2 8ac(ımageId)
+ --rm parametresi : Container ı ne zaman durdurursanız aynı anda silinme işlemi gerçekleşir.
+ docker rm 925 Bu kod 925 Id li container ı silme işlemi için kullanılır!!
+ docker run --rm --name myapp  
+-----------------------------------------
+-----------------------------------------
+docker rmi image silme işlemi için kullanılır. ""docker rmi f0f""
+-----------------------------------------
+-----------------------------------------
+docker build -t udemy_console_app:v1 .   image ı versiyonlamak için Tag belirttik.
+
+docker run --name mycontainer udemy_console_app:v1
+-----------------------------------------
+----------------------------------------- --force komutu
+Çalışan image ları silmek istiorsanız --force kullansanız da silemezsiniz. Container olursa direk siler.
+
+docker rmi image-id/name --force
+docker rm container-id/name
+-----------------------------------------
+-----------------------------------------
+DOCKER PULL image indirme
+
+docker pull mcr.microsoft.com/dotnet/core/sdk:3.1 yayınlamış image. 
+
+DOCKER PUSH docker hub a public veya private image gönderme
+
+docker tag busybox umutsahinkaya/udemyrepository:v1 repo oluşturdum sonrasında bu repoya internetten indirdiğim imagelardan birini yükledim...
+docker tag busybox umutsahinkaya/udemyrepository:v2
+-----------------------------------------
+-----------------------------------------
+
+
+
+
+
